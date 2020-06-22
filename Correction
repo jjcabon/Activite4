@@ -1,0 +1,27 @@
+# Créé par CABON Jean Jacques, le 22/06/2020 en Python 3.4
+class Annuaire:       #Le nom de la classe commence par une majuscule convention Camelcase
+   """Un objet de l'annuaire _self_ sera défini par"""
+   """ l'identifiant, nom, prénom, téléphone, email et une note"""
+   """on commence par définir l'objet def __init--(self, data):"""
+   """self.data =data"""
+   """on définit une méthode sur l'objet def --méthode(self,data):"""
+   """affichage print('texte{}'.format(self.data)"""
+   def __init__(self,id,nom,prenom,tel,mail,note):
+        self.id=id
+        self.nom=nom
+        self.prenom=prenom
+        self.tel=tel
+        self.mail=mail
+        self.note=note
+
+   def affiche_tel(self):
+        print('téléphone {} de {} '.format(self.tel,self.id))
+help(Annuaire)
+ami1=Annuaire("Lou","Pichaud","Louis",'0639080978','louis.pichaud@gmail.com', 'collègue')
+ami2=Annuaire("anna","Picart","anna",'0639876756','anna.picart@gmail.com','voisine')
+ami2.affiche_tel()
+#avec un dictionnaire
+annu={"Lou":["Pichaud","Louis","063978","louis.pichaud@gmail.com","collègue"],"anna":["Picart","anna","0987","anna.picart@gmail.com","voisine"]}
+print(annu["Lou"])
+
+
