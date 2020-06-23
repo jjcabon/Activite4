@@ -44,28 +44,39 @@ class Point:
         print('les coordonnées du point sont({};{})'.format(self.x,self.y))
 
 class Quizz:
-  
+
    def __init__(self,question,reponse):
         self.question=question
         self.reponse=reponse
 
    def test(self):
         print('Réfléchis à la question suivante:  {} '.format(self.question))
-        niveau=input('facile moyen difficile')
+        input('as tu trouvé?')
+        print('Voici la réponse: {}'.format(self.reponse))
+        niveau=input('facile , moyen, difficile ?')
         if niveau=='facile':
             score=5
         elif niveau=='moyen':
             score=3
         else:
             score=1
-        print('Voici la réponse: {}'.format(self.reponse))
         return(score)
-   """def debut():
+
+   def serie(): # on traite les questions dans l'ordre
+    note=0
+    for i in range(5):
+     t=Quizz(Q[i],R[i])
+     note+=Quizz.test(t)
+    print('ton score est de ',note)
+
+
+   def debut(): #on traite les questions au hasard
         note=0
         for n in range(5):
             t=randint(0,4)
-            note+=test(Q[t],R[t])
-        print('Votre note au quizz est  ',note)"""
+            T=Quizz(Q[t],R[t])
+            note+=Quizz.test(T)
+        print('Votre note au quizz est  ',note)
 
 A=Point(5,2)
 B=Point(2,-2)
@@ -75,6 +86,4 @@ M=Point.milieu(A,B)
 Point.affiche(M)
 Q=["Quelle est l''abscisse du point A(5;2)?","Quelle est l'ordonnée du point B(2;-2)?","Quelle sont les coordonnées du vecteur AB avec A(5.2) et B(2;-2) ?","Quelles sont les coordonnées du milieu du segment [A;B] ?","Quelles sont les coordonnées du symétrique du point A(5;2) par rapport au pointB(2;-2) ?"]
 R=[' l''abcisse est 5 on la lit sur le premier axe','l''ordonnée est -2 on la lit sur le second axe','c''est (-3;-4)','c''est (7/2;0)','c''est (1;-6)']
-for i in range(5):
-    t=Quizz(Q[i],R[i])
-    print(Quizz.test(t))
+Quizz.debut()
