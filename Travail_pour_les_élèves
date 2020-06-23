@@ -1,18 +1,37 @@
 PROGRAMMATION ORIENTEE OBJET
-Nous allons créer des classes d’objet puis des fonctions qui sont adaptées à ces objets. Un objet est une donnée. Créons ensemble un annuaire des amis et des proches. Quelles données sont importantes ? Nom, prénom, téléphone, email et une note : ami, collègue, famille, voisin… et un identifiant ?
+Nous allons créer des classes d’objet puis des fonctions qui sont adaptées à ces objets. Un objet est une donnée. 
+Créons ensemble un annuaire des amis et des proches.
+Quelles données sont importantes ? Nom, prénom, téléphone, email et une note : ami, collègue, famille, voisin… et un identifiant ?
 On définira une classe Annuaire : le nom commence par une majuscule, pas d’espace mais un tiret du 8_ c’est la CamelCase
 1°) On crée l’objet : def __init__(self,data) :
-Self.data=data 
+				Self.data=data 
 Self est l’objet et data est une donnée, un attribut
-Crée l’objet de la classe Annuaire 
+Créer l’objet de la classe Annuaire 
 2°) On crée ensuite des méthodes qui s’appliquent à ces objets :
 Une des principales est l’affichage d’un attribut. 
 Def affiche_data(self) :
 	Print(‘texte{}’.format(self.data))
 Self est un objet qui a des attributs. Cette fonction retourne celui qui est demandé.
 Ecrire une méthode qui affiche le numéro de téléphone et l’identifiant de la personne.
+
 Essayer avec N1 : Pierre, Le pompier, 18, ami 
 		N2 : Johanna, La médecin, 15, collègue
 		N3 : André, Le policier, 17, voisin
 
 3°) Créer une liste qui contient toutes ces informations puis une fonction qui produit les mêmes résultats que dans le 2°)
+
+4°) Créer une classe Point qui a pour objet un point du plan,
+l'objet, un point sera défini par ses deux coordonnées.
+Définir une méthode vecteur qui prendra deux entrées self et second et renverra un vecteur du plan.
+Définir une méthode milieu qui prend en entrée self et second et renvoie le milieu d'un segment.
+Définir une méthode symétrique qui prend en entrée self et second et renvoie le symétrique d'un point par rapport à un autre.
+
+5°) On va définir un quiz pour faciliter la mémorisation. 
+importer la classe Random et la méthode randint.
+Créer deux listes, une de 5 questions "Q" et l'autres des réponses à chaque question "R".
+Créer une classe Quizz dont l'objet est un test: Question/réponse et un score initialisé à 0.
+Créer une méthode debut qui pose 5 questions dans un ordre aléatoire, demande de réfléchir, affiche la réponse et demande le niveau de mémorisation: facile moyen ou difficile.
+Elle ajoutera à score 5, 3 ou 1 point selon la réponse. Elle affichera le score à la fin et un commentaire encourageant.
+Créer des variantes de cette méthode: courant, perfection avec des 10 ou 20 questions.
+
+
