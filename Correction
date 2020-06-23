@@ -1,11 +1,12 @@
-# Créé par CABON Jean Jacques, le 22/06/2020 en Python 3.4
+# Créé par user, le 23/06/2020 avec EduPython
+from random import randint
 class Annuaire:       #Le nom de la classe commence par une majuscule convention Camelcase
+#on commence par des commentaires accessibles lors de l'appel help(Annuaire)
    """Un objet de l'annuaire _self_ sera défini par"""
    """ l'identifiant, nom, prénom, téléphone, email et une note"""
    """on commence par définir l'objet def __init--(self, data):"""
    """self.data =data"""
-   """on définit une méthode sur l'objet def --méthode(self,data):"""
-   """affichage print('texte{}'.format(self.data)"""
+
    def __init__(self,id,nom,prenom,tel,mail,note):
         self.id=id
         self.nom=nom
@@ -13,15 +14,65 @@ class Annuaire:       #Le nom de la classe commence par une majuscule convention
         self.tel=tel
         self.mail=mail
         self.note=note
-
+   """on définit une méthode sur l'objet def --méthode(self,data):"""
+   """affichage print('texte{}'.format(self.data)"""
    def affiche_tel(self):
         print('téléphone {} de {} '.format(self.tel,self.id))
-help(Annuaire)
-ami1=Annuaire("Lou","Pichaud","Louis",'0639080978','louis.pichaud@gmail.com', 'collègue')
-ami2=Annuaire("anna","Picart","anna",'0639876756','anna.picart@gmail.com','voisine')
-ami2.affiche_tel()
-#avec un dictionnaire
-annu={"Lou":["Pichaud","Louis","063978","louis.pichaud@gmail.com","collègue"],"anna":["Picart","anna","0987","anna.picart@gmail.com","voisine"]}
-print(annu["Lou"])
+help(Annuaire)  # affiche la docstring de Annuaire
+ami1=Annuaire("pierre","Le pompier","Pierre",'18','pierre.lepompier@gmail.com', 'collègue')
+ami2=Annuaire("jo","La médecin","Johanna",'15','johanna.lamedecin@gmail.com','voisine')
+ami3=Annuaire("JO","Le policier","Jo","17",'jo.lepolicier@gmail.com',"ami")
+ami2.affiche_tel()  #ami1 ami2 et ami3 sont trois instances de la classe Annuaire
+#avec une liste
+pierre=["Le pompier","Pierre",'18',"pierre.lepompier@gmail.com", "collègue"]
+print(pierre[2], "est le numéro de ", pierre[1])
+
+
+class Point:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+
+    def vecteur(self,second):
+        return(Point(second.x-self.x,second.y-second.y))
+    def milieu(self,second):
+        return(Point((self.x+second.x)/2,(self.y+second.y)/2))
+
+    def symetrique(self,second):
+        return(Point(2*second.x-self.x,2*second.y-self.y))
+    def affiche(self):
+        print('les coordonnées du point sont({};{})'.format(self.x,self.y))
+
+class Quizz:
+   Q=["Quelle est l'abscisse du point A(5;2)?","Quelle est l'ordonnée du point B(2;-2)?","Quelle sont les coordonnées du vecteur AB avec A(5.2) et B(2;-2) ?","Quelles sont les coordonnées du milieu du segment [A;B] ?","Quelles sont les coordonnées du symétrique du point A(5;2) par rapport au pointB(2;-2) ?"]
+   R=[' l''abcisse est 5 on la lit sur le premier axe','l''ordonnée est -2 on la lit sur le second axe','c''est (-3;-4)','c''est (7/2;0)','c''est (1;-6)']
+   def __init__(self,question,reponse):
+        self.question=question
+        self.reponse=reponse
+
+   def test(self):
+        print('Réfléchis à la question suivante:  {} '.format(self.question))
+        niveau=input('facile','moyen','difficile')
+        if niveau=='facile':
+            score=5
+        elif niveau=='moyen':
+            score=3
+        else:
+            score=1
+        print('Voici la réponse: {}'.format(self.reponse))
+        return(score)
+   def debut():
+        note=0
+        for n in range(5):
+            t=randint(0,4)
+            note+=test(Q[t],R[t])
+        print('Votre note au quizz est  ',note)
+
+A=Point(5,2)
+B=Point(2,-2)
+AB=Point.vecteur(A,B)
+Point.affiche(AB)
+M=Point.milieu(A,B)
+Point.affiche(M)
 
 
